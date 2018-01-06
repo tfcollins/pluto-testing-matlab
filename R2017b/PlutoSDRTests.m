@@ -9,6 +9,7 @@ classdef PlutoSDRTests < matlab.unittest.TestCase
     methods(TestClassSetup)
         % Update Pluto Firmware
         function updateFirmware(testCase)
+            a=ver;
             rel = a(1).Release;rel = rel(2:end-1);
             r = updateFirmwarePluto(rel);
             testCase.assertTrue(r);
