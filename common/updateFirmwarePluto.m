@@ -3,6 +3,8 @@ function r = updateFirmwarePluto(release)
 !sudo mount /dev/sdb1 /pluto
 
 switch release
+    case 'R2017a'
+        !wget --no-check-certificate https://github.com/analogdevicesinc/plutosdr-fw/releases/download/v0.21/plutosdr-fw-v0.21.zip
     case 'R2017b'
         !wget --no-check-certificate https://github.com/analogdevicesinc/plutosdr-fw/releases/download/v0.23/plutosdr-fw-v0.23.zip
 end
