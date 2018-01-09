@@ -2,16 +2,19 @@
 classdef PlutoSDRTests < matlab.unittest.TestCase
     
     properties
-        
+        updatePlutoFirmware = true;
     end
     
     
     methods(TestClassSetup)
         % Update Pluto Firmware
         function updateFirmware(testCase)
-            rel = a(1).Release;rel = rel(2:end-1);
-            r = updateFirmwarePluto(rel);
-            testCase.assertTrue(r);
+            if testCase.updatePlutoFirmware
+                a = ver;
+                rel = a(1).Release;rel = rel(2:end-1);
+                r = updateFirmwarePluto(rel);
+                testCase.assertTrue(r);
+            end
         end
         % Load example settings from mat file
         function loadPlutoEnvironment(~)
